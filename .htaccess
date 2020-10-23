@@ -1,0 +1,30 @@
+RewriteEngine On
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /(.*)index\.php($|\ |\?)
+RewriteRule ^ /%1 [R=301,L]
+
+
+
+
+RewriteRule ^localhost$ /Women.php?women=Clothing
+RewriteRule ^stats$ /index.php?action=stats
+RewriteRule ^admin$ /index.php?action=admin
+
+RewriteRule ^view/onlineshop/(.*)$ /Women.php?women=Clothing&bId=$1
+RewriteRule ^view/author/(.*)$ /index.php?action=view&item=author&aId=$1
+RewriteRule ^view/publisher/(.*)$ /index.php?action=view&item=publisher&pId=$1
+RewriteRule ^view/category/(.*)$ /index.php?action=view&item=category&cId=$1
+
+RewriteRule ^xmldump/(.*)$ /dump.xml.php?bId=$1
+RewriteRule ^admin/import$ /index.php?action=admin&item=import
+
+RewriteRule ^list/books$ /Women.php?women=Clothing
+RewriteRule ^list/authors$ /index.php?action=list&item=author
+RewriteRule ^list/publishers$ /index.php?action=list&item=publisher
+
+RewriteRule ^view/book /index.php?action=list&item=book
+RewriteRule ^view/author /index.php?action=list&item=author
+RewriteRule ^view/publisher /index.php?action=list&item=publisher
+
+RewriteRule ^list/books/(.*)$ /index.php?action=list&item=book&page=$1
+
+RewriteRule ^graph/(.*)$ /stats/graph.stats.php?draw=$1
